@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
+    e.preventDefault(); 
     setErrorMsg("");
 
     try {
@@ -19,7 +22,7 @@ export default function LoginPage() {
         }
       );
       alert(`✅ Logged in as ${response.data.user.username}`);
-      // Add further navigation or state handling
+      navigate("/instructor/dashboard");
     } catch (error) {
       if (error.response) {
         setErrorMsg(

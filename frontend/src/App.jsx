@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import InstructorLogin from "./pages/InstructorLogin";
 import InstructorRegister from "./pages/InstructorRegister";
 import AdminLogin from "./pages/AdminLogin";
+import InstructorDashboard from "./pages/InstructorDashboard";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/instructor/login" element={<InstructorLogin />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/instructor/register" element={<InstructorRegister />} />
+        <Route path="/instructor/dashboard" element={<InstructorDashboard />} />
       </Routes>
     </Router>
   );
