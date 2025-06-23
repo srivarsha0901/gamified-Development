@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function LoginPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setErrorMsg('');
+    setErrorMsg("");
 
     try {
-      const response = await axios.post('https://localhost:3000/instructor-api/login', {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/instructor/login",
+        {
+          username,
+          password,
+        }
+      );
       alert(`✅ Logged in as ${response.data.user.username}`);
       // Add further navigation or state handling
     } catch (error) {
       if (error.response) {
-        setErrorMsg(error.response.data.message || 'Invalid username or password');
+        setErrorMsg(
+          error.response.data.message || "Invalid username or password"
+        );
       } else {
-        setErrorMsg('Something went wrong. Try again later.');
+        setErrorMsg("Something went wrong. Try again later.");
       }
     }
   };
@@ -33,7 +38,9 @@ export default function LoginPage() {
           <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-3xl font-bold">
             👩‍🏫
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 mt-3">Instructor Login</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mt-3">
+            Instructor Login
+          </h2>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">
@@ -55,7 +62,9 @@ export default function LoginPage() {
             required
           />
 
-          {errorMsg && <p className="text-red-500 text-sm text-center">{errorMsg}</p>}
+          {errorMsg && (
+            <p className="text-red-500 text-sm text-center">{errorMsg}</p>
+          )}
 
           <button
             type="submit"
