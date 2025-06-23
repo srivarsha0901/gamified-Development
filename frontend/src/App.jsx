@@ -10,8 +10,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-
-
         <Route path="/instructor/login" element={<InstructorLogin />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/instructor/register" element={<InstructorRegister />} />

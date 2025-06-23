@@ -24,7 +24,7 @@ const InstructorRegister = () => {
     setError("");
     try {
       await axios.post(
-        "http://localhost:5000/api/auth/instructor/register",
+        "http://localhost:5000/api/instructor/register",
         formData
       );
       alert("Registration successful. Please log in.");

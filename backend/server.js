@@ -1,21 +1,25 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
+const mongoose = require("mongoose");
 require("dotenv").config();
-const PORT = 5000;
-const app = express();
 
-// Middlewares
+const instructorRoutes = require("./routes/instructorRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const app = express();
+const PORT = 5000;
+
 app.use(cors());
 app.use(express.json());
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
-.then(() => console.log("✅ MongoDB connected"))
-.catch(err => console.error("❌ MongoDB connection error:", err));
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
-// Routes
-const adminRoutes = require("./routes/adminRoutes");
+app.use("/api/instructor", instructorRoutes);
 app.use("/api/admin", adminRoutes);
 
 // Server Port
