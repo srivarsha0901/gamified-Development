@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage"
+import HomePage from "./pages/HomePage";
 import InstructorLogin from "./pages/InstructorLogin";
 import InstructorRegister from "./pages/InstructorRegister";
 import AdminLogin from "./pages/AdminLogin";
-import './App.css'
+import "./App.css";
 function App() {
   return (
     <Router>
