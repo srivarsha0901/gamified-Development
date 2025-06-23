@@ -14,7 +14,7 @@ function AdminLogin() {
         password,
       });
 
-      localStorage.setItem("adminToken", res.data.token);
+      // localStorage.setItem("adminToken", res.data.token);
       alert("Login successful!");
       navigate("/admin/dashboard");
     } catch (err) {
