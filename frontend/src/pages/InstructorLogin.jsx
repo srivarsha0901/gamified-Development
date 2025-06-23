@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -7,7 +8,6 @@ export default function LoginPage() {
   const [errorMsg, setErrorMsg] = useState('');
 
   const handleLogin = async (e) => {
-    e.preventDefault();
     setErrorMsg('');
 
     try {
@@ -66,7 +66,13 @@ export default function LoginPage() {
         </form>
 
         <div className="text-center text-gray-500 text-sm mt-4">
-          Don't have an account? Contact your admin.
+          New user?{' '}
+          <Link
+            to="/register"
+            className="text-blue-600 font-bold hover:underline"
+          >
+            Register here
+          </Link>
         </div>
       </div>
     </div>
