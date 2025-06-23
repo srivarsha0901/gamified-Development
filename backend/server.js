@@ -21,6 +21,7 @@ mongoose
 
 app.use("/api/instructor", instructorRoutes);
 app.use("/api/admin", adminRoutes);
+
 // Server Port
 app.listen(PORT, () => {
   console.log(`🚀 Server started on port ${PORT}`);
