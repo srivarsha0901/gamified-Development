@@ -75,15 +75,13 @@ export default function LoginPage() {
         </form>
 
         <div className="text-center text-gray-500 text-sm mt-4">
-           New user?{' '}
+          New user?{" "}
           <Link
             to="/instructor/register"
             className="text-blue-600 font-bold hover:underline"
           >
             Register here
           </Link>
-        </div>
-   
         </div>
       </div>
     </div>
