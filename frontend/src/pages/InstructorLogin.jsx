@@ -68,7 +68,7 @@ export default function LoginPage() {
         <div className="text-center text-gray-500 text-sm mt-4">
           New user?{' '}
           <Link
-            to="instructor/register"
+            to="/instructor/register"
             className="text-blue-600 font-bold hover:underline"
           >
             Register here
